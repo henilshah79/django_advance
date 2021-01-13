@@ -1,4 +1,8 @@
-body{
+body {
     background-color: darkslategrey;
-    color:seashell;
+    color           : seashell;
+}
+
+hr {
+    background-color:seashell;
 }
