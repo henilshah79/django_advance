@@ -29,7 +29,7 @@
                 <hr>
                 <h1 class="display-4">&#x007B;% static 'img/1.jpg'%&#125;</h1>
             </div>
-            
+
             <div class="col-md-6">
                 <img src="{% static 'img/1.jpg' %}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
@@ -41,11 +41,33 @@
             <div class="col-md-6 border">
                 <h1 class="display-3">image load with get_static_prefix</h1>
                 <hr>
-                <h1 class="display-4">&#x007B;% get_static_prefix  %&#125;img/1.jpg</h1>
+                <h1 class="display-4">&#x007B;% get_static_prefix %&#125;img/1.jpg</h1>
             </div>
 
             <div class="col-md-6">
                 <img src="{% get_static_prefix %}img/2.jpg"
+                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                    alt="img 1">
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6 border">
+                <h1 class="display-4">variable declear</h1>
+                <hr>
+                <h1>&#x007B;% static 'img/2.jpg' as img %&#125;</h1>
+                <hr>
+                <h1 class="text-center">&#x007B;&#x007B;  img &#125;&#125;</h1>
+            </div>
+
+            <div class="col-md-6">
+                {% comment %} here the variable declear {% endcomment %}
+                {% static 'img/2.jpg' as img %}
+
+
+                <img src="{{img}}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                     alt="img 1">
             </div>

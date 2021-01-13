@@ -41,6 +41,17 @@ referce link:
 
 code part:
 ------------------------------------------------------------------------------
+{% comment %} load static file {% endcomment %}
+{% static 'img/1.jpg' %}
 
+{% comment %} another type static file load {% endcomment %}
+{% get_static_prefix %}img/2.jpg
 
+{% comment %} load file/package  {% endcomment %}
+{% load static %}
+
+{% comment %} variable create {% endcomment %}
+{% static 'img/1.jpg' as img %}
+
+<img src="{{img}}">
 ------------------------------------------------------------------------------
