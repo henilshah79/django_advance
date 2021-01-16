@@ -12,7 +12,7 @@ referce link:
 
 code part:
 ------------------------------------------------------------------------------
-
+{% extends 'base.html' %}
 ------------------------------------------------------------------------------
 
 
@@ -29,5 +29,10 @@ referce link:
 
 code part:
 ------------------------------------------------------------------------------
+{% extends 'base.html' %}
 
+{% comment %} here the you want to use base templates values and html templates values so use 'block.super' {% endcomment %}
+{% block title %}{{ block.super }}| home{% endblock title %}
+
+{% block heading %}{{ block.super }}hello home{% endblock heading %}
 ------------------------------------------------------------------------------
