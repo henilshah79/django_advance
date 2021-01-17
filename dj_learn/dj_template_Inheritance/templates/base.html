@@ -1,8 +1,9 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>{% block title %}Inheritance {% endblock title %}</title>
+  <title>{% block title %}Inheritance{% endblock title %}</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +11,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -17,11 +20,12 @@
     <a class="nav-link active" href="{% url 'home' %}">home</a>
     <a class="nav-link" href="{% url 'about' %}">about us</a>
   </nav>
+
   <div class="container">
     <h1>
       <span class="badge badge-danger">
-        {% block heading %}django says {% endblock heading %}
-    </span>
+        {% block heading %}django say's {% endblock heading %}
+      </span>
     </h1>
   </div>
 
