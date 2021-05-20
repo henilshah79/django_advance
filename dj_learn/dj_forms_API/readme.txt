@@ -113,3 +113,133 @@ class StudentRegistrationForm(forms.Form):
 {{forms.name}}
 {{forms.email}}
 ------------------------------------------------------------------------------
+
+title: config_id_attribute
+~>new things in django i learn : 3
+
+
+NOTE: 
+
+youtube link: https://www.youtube.com/watch?v=K_NJZd-YsoU&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=47
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+# here we got page source in browser
+view-source:http://127.0.0.1:8000/
+
+see the "forms" fields code
+<tr>
+  <th>
+  <label for="id_name">Name:</label>
+  </th>
+  <td>
+  <input type="text" name="name" required id="id_name">
+  </td>
+</tr>
+<tr>
+  <th>
+  <label for="id_email">Email:</label>
+  </th>
+  <td>
+  <input type="email" name="email" required id="id_email">
+  </td>
+</tr>
+
+
+# config_id_attribute of forms fields
+eg:
+id="id_name", id="id_email"
+
+
+{% comment %} how to configure {% endcomment %}
+views.py
+
+def home(request):
+    # normal form
+    # fm = StudentRegistrationForm()
+
+    # string with id
+    # fm = StudentRegistrationForm(auto_id="some_%s")
+
+    # fields with id
+    # fm = StudentRegistrationForm(auto_id=True)
+
+    # remove id
+    # fm = StudentRegistrationForm(auto_id=False)
+
+    data ={
+        "fm": fm,
+    }
+    return render(request, 'studentform.html', data)
+
+output in website(auto_id="some_%s")
+<input type="text" name="name" required id="some_name"></td></tr>
+<tr><th><label for="some_email">Email:</label></th><td><input type="email" name="email" required id="some_email">
+
+
+output in website(auto_id=True)
+<input type="text" name="name" required id="name"></td></tr>
+<tr><th><label for="email">Email:</label></th><td><input type="email" name="email" required id="email">
+
+
+output in website(auto_id=False)
+<input type="text" name="name" required></td></tr>
+<tr><th>Email:</th><td><input type="email" name="email" required>
+------------------------------------------------------------------------------
+
+
+title: config_lable_tags
+~>new things in django i learn : 4
+
+
+NOTE: 
+
+youtube link: https://youtu.be/K_NJZd-YsoU?list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&t=703
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+{% comment %} how to configure {% endcomment %}
+views.py
+
+def home(request):
+    # lable suffix = ":"
+    # fm = StudentRegistrationForm(auto_id=True, label_suffix = "=")
+    # fm = StudentRegistrationForm(auto_id=True, label_suffix = "A")
+    fm = StudentRegistrationForm(auto_id=True, label_suffix = " ")
+    data ={
+        "fm": fm,
+    }
+    return render(request, 'studentform.html', data)
+
+output on website site
+------------------------------------------------------------------------------
+
+title: dynamic initial values
+~>new things in django i learn : 5
+
+
+NOTE: 
+
+youtube link: https://youtu.be/K_NJZd-YsoU?list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&t=881
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+{% comment %} how to configure {% endcomment %}
+views.py
+
+def home(request):
+    fm = StudentRegistrationForm(auto_id=True, label_suffix = " ", initial = {'name':"abc"})
+    data ={
+        "fm": fm,
+    }
+    return render(request, 'studentform.html', data)
+
+output on website site
+------------------------------------------------------------------------------
+
