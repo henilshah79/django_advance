@@ -385,3 +385,55 @@ output:
 load the website 
 ------------------------------------------------------------------------------
 
+
+
+title: field argument
+~>new things in django i learn : 8
+
+
+NOTE: here the field argument
+
+youtube link: https://www.youtube.com/watch?v=XB3lhklF1Ts&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=51&t=149s
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+=>required,
+=>label,
+=>label_suffix,
+=>initial,
+=>disabled,
+=>help_text,
+=>validation,
+=>localize,
+=>widget,
+
+
+eg:
+forms.py
+========
+class Student_with_widget(forms.Form):
+    name = forms.CharField(
+        label="Your name", 
+        initial="abc",
+        label_suffix=" ",
+        required=False,
+        disabled=True,
+        help_text="this is a help_text demo",
+    )
+
+{% comment %} you can also used this method {% endcomment %}
+
+fm_with_widget = Student_with_widget(initial={
+        'name': 'Student'
+})
+
+html
+=======
+
+  <form action="" method="post">
+    {{eg_widget.as_p}}
+  </form>
+------------------------------------------------------------------------------
+

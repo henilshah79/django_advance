@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import StudentRegistrationForm
+from .forms import *
 # Create your views here.
 
 def home(request):
@@ -27,11 +27,15 @@ def home(request):
     # field_order
     fm = StudentRegistrationForm(field_order=['name', 'email', 'phno'])
 
+    fm_with_widget = Student_with_widget(initial={
+        'name': 'Student'
+    })
 
 
 
 
     data ={
         "fm": fm,
+        "eg_widget":fm_with_widget
     }
     return render(request, 'studentform.html', data)
