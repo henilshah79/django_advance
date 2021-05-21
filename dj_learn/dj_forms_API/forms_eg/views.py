@@ -21,7 +21,16 @@ def home(request):
     # fm = StudentRegistrationForm(auto_id=True, label_suffix = " ")
 
     # dynamic initial values
-    fm = StudentRegistrationForm(auto_id=True, label_suffix = " ", initial = {'name':"abc"})
+    # fm = StudentRegistrationForm(auto_id=True, label_suffix = " ", initial = {'name':"abc"})
+    
+    
+    # field_order
+    fm = StudentRegistrationForm(field_order=['name', 'email', 'phno'])
+
+
+
+
+
     data ={
         "fm": fm,
     }

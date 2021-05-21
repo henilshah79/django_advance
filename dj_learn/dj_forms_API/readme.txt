@@ -243,3 +243,145 @@ def home(request):
 output on website site
 ------------------------------------------------------------------------------
 
+title: forms orders
+~>new things in django i learn : 6
+
+
+NOTE: arrange the form fields
+
+youtube link: https://www.youtube.com/watch?v=XV7VAOrJ3B8&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=48
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+forms.py
+---------
+from django import forms
+
+
+class StudentRegistrationForm(forms.Form):
+    name = forms.CharField()
+    phno = forms.IntegerField()
+    email = forms.EmailField()
+
+views.py
+---------
+from django.shortcuts import render
+from .forms import StudentRegistrationForm
+# Create your views here.
+
+def home(request):
+    # field_order
+    fm = StudentRegistrationForm(field_order=['name', 'email', 'phno'])
+
+
+
+
+
+    data ={
+        "fm": fm,
+    }
+    return render(request, 'studentform.html', data)
+------------------------------------------------------------------------------
+
+
+
+title: render forms field manually
+~>new things in django i learn : 7
+
+
+NOTE: fields and forms are an eg.
+
+youtube link: https://www.youtube.com/watch?v=cVF7PAT8wlk&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=49
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+=> the label of the field
+{{field.label}}
+eg:
+    {{form.name.label}}
+
+=> label tags <label>
+{{field.label_tag}}
+
+=> the id that will be used for this field
+{{field.id_for_label}}
+eg:
+    {{form.name.id_for_label}}
+
+
+=> the value of the field
+{{field.value}}
+eg:
+    {{form.name.value}}
+
+
+=> html_name
+{{field.html_name}}
+eg:
+    {{form.name.html_name}}
+
+=> any help text that has been associated with the field
+{{field.help_text}}
+eg:
+    {{form.name.help_text}}
+
+the field instancefrom the form class that this BoundField wraps. You can use it to access field attributes.
+{{field.field}}
+eg:
+    {{form.name.field.help_text}}
+
+hidden field
+{{field.is_hidden}}
+
+eg:
+{% if field.is_hidden%}
+    {# Do something special #}
+{% endif%}
+
+
+
+codings:
+========
+in html file "studentform.html"
+{{fm.name.id_for_label}}
+
+<form>
+    <div>
+      <label for="{{fm.name.id_for_label}}">name:</label>
+      {{fm.name}}
+    </div>
+
+    <div>{{fm.name.label_tag}} {{fm.name}}</div>
+
+    <div>
+      {{fm.name.label_tag}} {% comment %} here the value is none then you can
+      pass value with view.py and forms.py {% endcomment %} {{fm.name.value}}
+      <br />
+      <label>html value:</label>
+      {{fm.name.html_name}}
+
+      <br />
+      <label>help text:</label>
+      {{fm.name.help_text}}
+    </div>
+  </form>
+
+
+forms.py
+--------
+from django import forms
+
+
+class StudentRegistrationForm(forms.Form):
+    name = forms.CharField(initial="abc", help_text="this is a help_text demo")
+    phno = forms.IntegerField()
+    email = forms.EmailField()
+
+output:
+load the website 
+------------------------------------------------------------------------------
+
