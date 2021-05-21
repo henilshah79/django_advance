@@ -437,3 +437,43 @@ html
   </form>
 ------------------------------------------------------------------------------
 
+
+title: field widget
+~>new things in django i learn : 9
+
+
+NOTE: here the field argument
+
+youtube link: https://www.youtube.com/watch?v=HkW0NxzMZxg&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=52
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+widget
+=======
+=>attrs
+=>TextInput
+=>NumberInput
+=>EmailInput
+=>URLInput
+=>PasswordInput
+=>HiddenInput
+=>DateInput
+=>DateTimeInput
+=>TimeInput
+=>Textarea
+=>Select
+=>NullBoolenSelect
+=>selectMultiple
+=>RadioSelect
+=>CheckboxSelectMultiple
+=>FileInput
+=>MultipleHiddenInput
+=>SplitDateTimeWidget
+=>SplitHiddenDateTimeWidget
+=>SplitDateWidget
+
+
+------------------------------------------------------------------------------
+

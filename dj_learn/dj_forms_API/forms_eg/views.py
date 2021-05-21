@@ -27,15 +27,18 @@ def home(request):
     # field_order
     fm = StudentRegistrationForm(field_order=['name', 'email', 'phno'])
 
-    fm_with_widget = Student_with_widget(initial={
+    fm_with_args = Student_with_args(initial={
         'name': 'Student'
     })
+
+    fm_with_widget = Student_with_widget()
 
 
 
 
     data ={
         "fm": fm,
+        "eg_args":fm_with_args,
         "eg_widget":fm_with_widget
     }
     return render(request, 'studentform.html', data)
