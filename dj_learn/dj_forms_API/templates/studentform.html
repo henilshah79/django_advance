@@ -64,6 +64,14 @@
     {{eg_widget.as_p}}
   </form>
 
+<hr>
+{% comment %} valid form {% endcomment %}
+  <form method="POST">
+    {% csrf_token %}
+    {{eg_valid.as_p}}
+    <button type="submit">submit</button>
+  </form>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

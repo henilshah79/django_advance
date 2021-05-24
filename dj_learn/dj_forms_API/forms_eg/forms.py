@@ -1,5 +1,4 @@
 from django import forms
-from django.utils.translation import ungettext_lazy
 
 
 class StudentRegistrationForm(forms.Form):
@@ -101,3 +100,11 @@ class Student_with_widget(forms.Form):
             'id':'uniqueid'
         })
     )
+
+
+class StudentRegistrationForm_demo(forms.Form):
+    name = forms.CharField(initial='abc')
+    phno = forms.IntegerField(initial='123')
+    email = forms.EmailField(initial='abc@gmail.com')
+    passwd = forms.CharField(widget=forms.PasswordInput())
+

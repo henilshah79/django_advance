@@ -477,3 +477,112 @@ widget
 
 ------------------------------------------------------------------------------
 
+
+title: data validation
+~>new things in django i learn : 9
+
+
+NOTE: 
+
+youtube link: https://youtu.be/xXZbxxH1jTQ?list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&t=483
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+views.py
+=========
+def home(request):
+    if request.POST:
+        fmvalid = StudentRegistrationForm_demo(request.POST)
+        print(fmvalid)
+        if fmvalid.is_valid():
+            print(f"\n\n\n\n{fmvalid.cleaned_data}\n\n\n\n")
+            print(f"\n\n\n\n{fmvalid.cleaned_data['name']}\n\n\n\n")
+            print(f"\n\n\n\n{fmvalid.cleaned_data['phno']}\n\n\n\n")
+            print(f"\n\n\n\n{fmvalid.cleaned_data['email']}\n\n\n\n")
+        # clear form fields
+        fmvalid = StudentRegistrationForm_demo()
+    else:
+        fmvalid = StudentRegistrationForm_demo()
+
+    data = {
+        "eg_valid": fmvalid
+    }
+    return render(request, 'studentform.html', data)
+
+
+forms.py
+========
+class StudentRegistrationForm_demo(forms.Form):
+    name = forms.CharField()
+    phno = forms.IntegerField()
+    email = forms.EmailField()
+    passwd = forms.CharField(widget=forms.PasswordInput())
+
+
+html
+=====
+{% comment %} valid form {% endcomment %}
+  <form method="POST">
+    {% csrf_token %}
+    {{eg_valid.as_p}}
+    <button type="submit">submit</button>
+  </form>
+------------------------------------------------------------------------------
+
+
+
+title: HttpResponseRedirect
+~>new things in django i learn : 9
+
+
+NOTE: 
+
+youtube link: https://www.youtube.com/watch?v=o1JQ6zmMA9U&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=57
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+views.py
+=========
+def home(request):
+    if request.POST:
+        fmvalid = StudentRegistrationForm_demo(request.POST)
+        print(fmvalid)
+        if fmvalid.is_valid():
+            print(f"\n\n\n\n{fmvalid.cleaned_data}\n\n\n\n")
+            print(f"\n\n\n\n{fmvalid.cleaned_data['name']}\n\n\n\n")
+            print(f"\n\n\n\n{fmvalid.cleaned_data['phno']}\n\n\n\n")
+            print(f"\n\n\n\n{fmvalid.cleaned_data['email']}\n\n\n\n")
+        # clear form fields
+        fmvalid = StudentRegistrationForm_demo()
+    else:
+        fmvalid = StudentRegistrationForm_demo()
+
+    data = {
+        "eg_valid": fmvalid
+    }
+    return render(request, 'studentform.html', data)
+
+
+forms.py
+========
+class StudentRegistrationForm_demo(forms.Form):
+    name = forms.CharField()
+    phno = forms.IntegerField()
+    email = forms.EmailField()
+    passwd = forms.CharField(widget=forms.PasswordInput())
+
+
+html
+=====
+{% comment %} valid form {% endcomment %}
+  <form method="POST">
+    {% csrf_token %}
+    {{eg_valid.as_p}}
+    <button type="submit">submit</button>
+  </form>
+------------------------------------------------------------------------------
+
