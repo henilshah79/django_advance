@@ -532,7 +532,6 @@ html
 ------------------------------------------------------------------------------
 
 
-
 title: HttpResponseRedirect
 ~>new things in django i learn : 9
 
@@ -584,5 +583,22 @@ html
     {{eg_valid.as_p}}
     <button type="submit">submit</button>
   </form>
+------------------------------------------------------------------------------
+
+
+
+title: Form Field Type
+~>new things in django i learn : 10
+
+
+NOTE: 
+
+youtube link: https://www.youtube.com/watch?v=MbpBMmjfn6M&list=PLbGui_ZYuhigchy8DTw4pX4duTTpvqlh6&index=58
+
+referce link:
+
+code part:
+------------------------------------------------------------------------------
+
 ------------------------------------------------------------------------------
 

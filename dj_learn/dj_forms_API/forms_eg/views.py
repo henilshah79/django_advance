@@ -32,7 +32,7 @@ def home(request):
     fm_with_args = Student_with_args(initial={
         'name': 'Student'
     })
-    
+
     fm_with_widget = Student_with_widget()
 
     if request.POST:
@@ -63,3 +63,27 @@ def home(request):
 
 def newpage(request):
     return render(request, 'welcome.html')
+
+
+# Form Field Type
+def formField_data(request):
+    if request.POST:    
+        fm = fieldForm(request.POST)
+        if fm.is_valid():
+            print(f"\n min_len:{fm.cleaned_data['min_len']}")
+            print(f"\n max_len:{fm.cleaned_data['max_len']}")
+            print(f"\n space_data:{fm.cleaned_data['space_data']}")
+            print(f"\n empty_val:{fm.cleaned_data['empty_val']}")
+            print(f"\n num:{fm.cleaned_data['num']}")
+            fm = fieldForm()
+        else:
+            # fm = fieldForm()
+            print(fm.errors)
+    else:
+        fm = fieldForm()
+        print("\n\n",fm.errors)
+
+    data = {
+        "name":fm
+    }
+    return render(request, 'formsshow.html', data)
